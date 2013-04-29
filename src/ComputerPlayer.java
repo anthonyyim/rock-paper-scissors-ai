@@ -9,17 +9,18 @@ public class ComputerPlayer {
     probabilityTable = new ProbabilityTable(difficulty);
   }
 
-  //public enum getNextMove() {
-  //}
+  public String getNextMove() {
+    return probabilityTable.getOptimalNextMove(lookback);
+  }
 
   public void saveHumanMove(String move) {
-    lookback = lookback.concat(move);
-
     if (lookback.length() == difficulty) {
-      probabilityTable.incrementProbabilityTable(lookback);
+      probabilityTable.incrementProbabilityTable(lookback, move);
     } else if (lookback.length() > difficulty){
       probabilityTable
-          .incrementProbabilityTable(lookback.substring(lookback.length() - difficulty));
+          .incrementProbabilityTable(lookback.substring(lookback.length() - difficulty), move);
     }
+
+    lookback = lookback.concat(move);
   }
 }
