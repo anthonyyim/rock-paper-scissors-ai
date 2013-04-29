@@ -9,9 +9,10 @@ public class Main {
    * @param args
    */
   public static void main(String[] args) {
-    int difficulty = 3;
+    int difficulty = 4;
     ComputerPlayer computerPlayer = new ComputerPlayer(difficulty);
-
+    RPSScoreKeeper scorekeeper = new RPSScoreKeeper(0, 0);
+    
     while (true) {
       System.out.print("Enter your move: ");
       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -24,7 +25,9 @@ public class Main {
         System.exit(1);
       }
       
-      System.out.println("Human: " + humanMove + " -- Computer: " + computerPlayer.getNextMove());
+      scorekeeper.determineWinner(humanMove, computerPlayer.getNextMove());
+      scorekeeper.printScores();
+      //System.out.println("Human: " + humanMove + " -- Computer: " + computerPlayer.getNextMove());
       computerPlayer.saveHumanMove(humanMove);
     }
     /*
