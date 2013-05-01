@@ -9,7 +9,7 @@ public class Main {
    * @param args
    */
   public static void main(String[] args) {
-    int difficulty = 4;
+    int difficulty = 1;
     ComputerPlayer computerPlayer = new ComputerPlayer(difficulty);
     RPSScoreKeeper scorekeeper = new RPSScoreKeeper(0, 0);
     

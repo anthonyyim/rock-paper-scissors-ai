@@ -1,1 +1,3 @@
-A computerized rock paper scissors opponent that learns from your playing habits and chooses the optimal next move. 
+Status: In-progress (ROUGH - PROCEED AT YOUR OWN RISK).
+
+A computerized rock paper scissors opponent that learns from your playing habits by building an online Bayesian inference model, and chooses the optimal next move to beat you (the human player).
