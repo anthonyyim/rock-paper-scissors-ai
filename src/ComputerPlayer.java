@@ -1,9 +1,8 @@
-
 public class ComputerPlayer {
   int difficulty;
   ProbabilityTable probabilityTable;
   String lookback = "";
-  
+
   public ComputerPlayer(int difficulty) {
     this.difficulty = difficulty;
     probabilityTable = new ProbabilityTable(difficulty);

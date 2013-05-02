@@ -1,4 +1,3 @@
-
 public class RPSScoreKeeper {
   int playerAScore = 0;
   int playerBScore = 0;

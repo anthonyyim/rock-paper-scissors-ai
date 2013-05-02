@@ -1,3 +1,5 @@
 Status: In-progress (ROUGH - PROCEED AT YOUR OWN RISK).
 
 A computerized rock paper scissors opponent that learns from your playing habits by building an online Bayesian inference model, and chooses the optimal next move to beat you (the human player).
+
+The inspiration came from seeing New York Times' version of the game - http://www.nytimes.com/interactive/science/rock-paper-scissors.html?_r=0. I wanted to see if I can come up with a better learning algorithm than the New York Times.

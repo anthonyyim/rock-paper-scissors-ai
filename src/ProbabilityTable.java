@@ -1,8 +1,7 @@
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Set;
 
-
+// TODO (anthonyyim@gmail.com): Refactor variable and method names.
 public class ProbabilityTable {
   HashMap<String, HashMap> moveCount;
   int difficulty;
@@ -13,6 +12,8 @@ public class ProbabilityTable {
     initializeMoveCount(moveCount, difficulty);
   }
 
+  // Update probability table with true outcome in order to make future predictions as close
+  // to the true human player move as possible (assuming human player uses a pattern).
   public void incrementProbabilityTable(String lookback, String mostRecentHumanMove) {
     HashMap possibleNextMoves = moveCount.get(lookback);
     int count = (Integer) possibleNextMoves.get(mostRecentHumanMove);
@@ -21,16 +22,15 @@ public class ProbabilityTable {
   }
 
   public String getOptimalNextMove(String lookback) {
-    // find out human's most likely next move.
+    // Find out human's most likely next move.
     String mostLikelyMoveByHuman = mostLikelyNextMove(lookback);
 
-    // calculate what computer move should be to win.
+    // Calculate what the computer move should be for computer to win.
     return calculateWinMove(mostLikelyMoveByHuman);
   }
 
   private void initializeMoveCount(HashMap moveCount, int difficulty) {
     String possibleMoves = "RPS";
-    
     permutateMoves(moveCount, difficulty, possibleMoves, "");
   }
 
@@ -72,7 +72,8 @@ public class ProbabilityTable {
         }
       } 
     } else {
-      // Always play rock if lookback isn't long enough yet.
+      // Assume human will go for rock if lookback window not long enough.
+      // TODO (anthonyyim@gmail.com): Update to return a random move.
       result = "R";
     }
     
@@ -81,7 +82,7 @@ public class ProbabilityTable {
 
   private String calculateWinMove(String mostLikelyMoveByHuman) {
     String result = "";
-    // TODO (anthonyyim@gmail.com): Handle case when likelihood is uniform.
+
     if (mostLikelyMoveByHuman.equals("R")) {
       result = "P";
     } else if (mostLikelyMoveByHuman.equals("P")) {
